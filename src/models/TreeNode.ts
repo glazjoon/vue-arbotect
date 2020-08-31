@@ -1,7 +1,6 @@
 import randomizeString from '@/lib/randomizeString';
-import { TreeNodeState } from '@/models';
 
-export default class TreeNode implements TreeNodeState {
+export default class TreeNode {
   disabled = false;
   expanded = false;
   selected = false;
