@@ -68,7 +68,16 @@ export default class VueArbotect extends Vue {
   initState(propName: string) {
     const value = this[propName as keyof VueArbotect];
 
-    if (typeof value === 'boolean') {
+    const isBoolean = typeof value === 'boolean';
+
+    if (isBoolean && propName === 'expanded') {
+      this.recurse(
+        (n: TreeNode) =>
+          (n[propName as keyof TreeNodeState] = n.children.length
+            ? value
+            : false)
+      );
+    } else if (isBoolean) {
       this.recurse(
         (n: TreeNode) => (n[propName as keyof TreeNodeState] = value)
       );

@@ -5,6 +5,11 @@
     <Options :options="options" @toggle-expand="expand = $event" />
     <h2>Demo</h2>
     <VueArbotect :tree="tree" :options="options" :expanded="expand">
+      <template #label="{ node: { value, expanded } }">
+        <div :class="{ red: expanded }">
+          {{ value }}
+        </div>
+      </template>
     </VueArbotect>
   </div>
 </template>
@@ -40,3 +45,9 @@ export default class App extends Vue {
   ];
 }
 </script>
+
+<style>
+.red {
+  color: red;
+}
+</style>
