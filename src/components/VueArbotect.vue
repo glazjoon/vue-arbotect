@@ -11,7 +11,7 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 import Node from '@/components/Node.vue';
 
-import { Options, TreeNodeState, TreeNode, SelectMode } from '@/models';
+import { Options, TreeNode, SelectMode, TreeNodeState } from '@/models';
 
 import { recurse } from '@/lib/recurse';
 
@@ -60,7 +60,7 @@ export default class VueArbotect extends Vue {
 
     if (typeof value === 'boolean') {
       this.recurse(
-        (n: TreeNodeState) => (n[propName as keyof TreeNodeState] = value)
+        (n: TreeNode) => (n[propName as keyof TreeNodeState] = value)
       );
     } else if (Array.isArray(value)) {
       this.recurse((n: TreeNode) => {
