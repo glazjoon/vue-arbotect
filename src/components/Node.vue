@@ -55,6 +55,7 @@ import { Options, SelectMode, TreeNode } from '@/models';
 import { recurse } from '@/lib/recurse';
 
 @Component({
+  name: 'Node',
   components: { Expander }
 })
 export default class Node extends Vue {
