@@ -4,7 +4,8 @@
     <h2>Options</h2>
     <Options :options="options" @toggle-expand="expand = $event" />
     <h2>Demo</h2>
-    <VueArbotect :tree="tree" :options="options" :expanded="expand" />
+    <VueArbotect :tree="tree" :options="options" :expanded="expand">
+    </VueArbotect>
   </div>
 </template>
 

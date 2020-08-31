@@ -2,21 +2,25 @@
   <div :id="node.key">
     <div class="node">
       <div class="expander">
-        <slot name="expander" v-if="hasChildren">
+        <slot name="expander" v-if="hasChildren" :node="node">
           <Expander
             :expanded="node.expanded"
             @toggle="node.expanded = !node.expanded"
           />
         </slot>
       </div>
-      <slot name="checkbox" v-if="options.selectMode !== SelectMode.Disabled">
+      <slot
+        name="checkbox"
+        :node="node"
+        v-if="options.selectMode !== SelectMode.Disabled"
+      >
         <input
           type="checkbox"
           v-model="node.selected"
           @change="onCheckboxToggle($event.target.checked)"
         />
       </slot>
-      <slot v-bind:slotNode="node">
+      <slot name="label" :node="node">
         {{ node.value }}
       </slot>
     </div>

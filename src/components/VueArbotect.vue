@@ -1,7 +1,17 @@
 <template>
   <ul>
-    <li v-for="node in tree" :key="node.key">
-      <Node :node="node" :options="normalizedOptions" :onToggle="onToggle" />
+    <li v-for="leaf in tree" :key="leaf.key">
+      <Node :node="leaf" :options="normalizedOptions" :onToggle="onToggle">
+        <template #expander="{ node }">
+          <slot name="expander" :node="node"></slot>
+        </template>
+        <template #checkbox="{ node }">
+          <slot name="checkbox" :node="node"></slot>
+        </template>
+        <template #label="{ node }">
+          <slot name="label" :node="node"></slot>
+        </template>
+      </Node>
     </li>
   </ul>
 </template>
