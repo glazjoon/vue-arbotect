@@ -15,7 +15,7 @@ import { Options, TreeNodeState, TreeNode, SelectMode } from '@/models';
 
 import { recurse } from '@/lib/recurse';
 
-type StateInitiator = boolean | string[];
+type StateInitiator = boolean | Array<string>;
 
 @Component({
   components: {
